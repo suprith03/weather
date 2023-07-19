@@ -1,14 +1,11 @@
 import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import './App.css';
 
 function App() {
 
-
-  // const apiKey = "f56f24967aaf51182d1d4df628297c6d"
-  const apiKey = process.env.API_KEY;
-  console.log(apiKey);
+  const apiKey = process.env.REACT_APP_API_KEY;
   const [inputCity, setInputCity] = useState("")
   const [data, setData] = useState({})
 
@@ -25,7 +22,6 @@ function App() {
   }
 
   const handleChangeInput = (e) => {
-    console.log("value", e.target.value)
     setInputCity(e.target.value)
   }
 
