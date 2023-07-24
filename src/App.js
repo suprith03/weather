@@ -14,8 +14,9 @@ function App() {
     if (!cityName) return
     const apiURL = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=" + apiKey
     axios.get(apiURL).then((res) => {
-      console.log("response", res.data)
-      setData(res.data)
+      console.log("response", res)
+      setData(res.data);
+
     }).catch((err) => {
       console.log("err", err)
     })
@@ -49,9 +50,8 @@ function App() {
         <div className="col-md-12 text-center mt-5">
 
           <div className="weatherResultBox">
-            <img className="weatherIcon"
-              src="https://creazilla-store.fra1.digitaloceanspaces.com/icons/7911203/weather-icon-md.png" />
-
+            <img src={"https://openweathermap.org/img/wn/" + data?.weather[0]?.icon + "@2x.png"} alt="icon" img/>
+            
             <h5 className="weatherCity">
               {data?.name}
             </h5>
@@ -61,6 +61,8 @@ function App() {
       }
 
     </div>
+
+// "https://creazilla-store.fra1.digitaloceanspaces.com/icons/7911203/weather-icon-md.png"
   );
 }
 
